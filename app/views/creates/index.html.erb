@@ -1,0 +1,4 @@
+<h1>All Wikis</h1>
+<% @creates.each do |create| %>
+  <p><%= link_to create.title, create %></p>
+<% end %>
