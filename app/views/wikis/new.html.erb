@@ -10,8 +10,7 @@
       <li>Make learning fun!</li>
     </ul>
   </div>
-  <form class="large-70 content-center">
-    <%= form_for @wiki, html: { class: 'ink-form-horizontal' } do |f| %>
+    <%= form_for @wiki, html: { class: 'large-70 content-center ink-form-horizontal' } do |f| %>
       <div class="control-group">
         <%= f.label :title, class: 'control-label' %>
         <div class="controls">
@@ -30,5 +29,4 @@
         </div>
       </div>
     <% end %>
-  </form>
 </div>

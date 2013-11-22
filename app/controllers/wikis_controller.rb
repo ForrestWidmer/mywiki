@@ -12,14 +12,14 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = Wiki.find(params[:wiki])
-    if @wiki.save
-      flash[:notice] = "Wiki has been saved."
-      redirect_to @wiki
-    else
-      flash[:error] = "There was a problem saving your wiki. Please try again."
-      render :new
-    end
+    @wiki = Wiki.new(params[:wiki])
+      if @wiki.save
+        flash[:notice] = "Wiki Created!"
+        redirect_to @wiki
+      else
+        flash[:error] = "There was a problem saving your wiki. Please try again."
+        render :new
+      end
   end
 
   def edit
