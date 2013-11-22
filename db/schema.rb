@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131122030952) do
+ActiveRecord::Schema.define(:version => 20131122212310) do
 
   create_table "discussions", :force => true do |t|
     t.text     "body"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20131122030952) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -50,6 +51,9 @@ ActiveRecord::Schema.define(:version => 20131122030952) do
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  add_index "wikis", ["user_id"], :name => "index_wikis_on_user_id"
 
 end

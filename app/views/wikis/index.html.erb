@@ -1,4 +1,18 @@
-<h1>All Wikis</h1>
+<h1 class="content-center">All Wikis</h1>
+<% if can? :create, Wiki %>
+  <div class="content-center"><%= link_to "Create a New Wiki!", new_wiki_path, class: 'ink-button green' %></div>
+<% end %>
+
 <% @wikis.each do |wiki| %>
-  <p><%= link_to wiki.title, wiki %></p>
+  <div class="ink-grid">
+    <div class="media-heading">
+      <h4 class="small-70">
+        <%= link_to wiki.title, wiki %>
+      </h4>
+      <small>
+        Created <%= time_ago_in_words(wiki.created_at) %> ago by <%= wiki.user.name %><br/>
+        <%= wiki.discussions.count %> Discussion comments
+      </small>
+    </div>
+  </div>
 <% end %>

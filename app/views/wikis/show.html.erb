@@ -1,5 +1,7 @@
 <h1><%= @wiki.title %></h1>
 
-<%= link_to "Edit", edit_wiki_path(@wiki), class: 'ink-button grey' %>
+<% if can? :edit, @wiki %>
+<%= link_to "Edit Wiki", edit_wiki_path(@wiki), class: 'ink-button grey' %>
+<% end %>
 
 <p><%= @wiki.body %></p>

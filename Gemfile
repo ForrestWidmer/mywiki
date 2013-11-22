@@ -27,4 +27,5 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'faker'
 gem 'devise'
+gem 'cancan'
 
