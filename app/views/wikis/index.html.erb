@@ -1,0 +1,4 @@
+<h1>All Wikis</h1>
+<% @wikis.each do |Wiki| %>
+  <p><%= link_to wiki.title, wiki %></p>
+<% end %>

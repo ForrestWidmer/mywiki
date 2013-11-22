@@ -1,4 +1,4 @@
 class Discussion < ActiveRecord::Base
-  belongs_to :create
+  belongs_to :wiki
   attr_accessible :body
 end

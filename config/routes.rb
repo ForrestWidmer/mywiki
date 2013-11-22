@@ -1,6 +1,6 @@
 Mywiki::Application.routes.draw do
   
-  resources :creates
+  resources :wikis
 
   match "about" => 'welcome#about', via: :get
 

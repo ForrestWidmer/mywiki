@@ -11,22 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131121031712) do
+ActiveRecord::Schema.define(:version => 20131121222825) do
 
-  create_table "creates", :force => true do |t|
+  create_table "discussions", :force => true do |t|
+    t.text     "body"
+    t.integer  "wiki_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "discussions", ["wiki_id"], :name => "index_discussions_on_wiki_id"
+
+  create_table "wikis", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "discussions", :force => true do |t|
-    t.text     "body"
-    t.integer  "create_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "discussions", ["create_id"], :name => "index_discussions_on_create_id"
 
 end
