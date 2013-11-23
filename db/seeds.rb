@@ -1,5 +1,6 @@
 require 'faker'
 
+
 rand(4..10).times do
   password = Faker::Lorem.characters(10)
   u = User.new(

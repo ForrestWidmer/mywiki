@@ -11,7 +11,8 @@
 <div class="ink-navigation nav">
   <ul class="menu horizontal rounded shadowed green">
     <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About", about_path %></li>   
+    <li><%= link_to "About", about_path %></li>
+    <li><%= link_to "Categories" %></li>
       <ul class="pull-right">
         <% if current_user %>
         <li class="user-info">Hello <%= current_user.email %>!</li> <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
