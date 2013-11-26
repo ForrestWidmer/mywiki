@@ -3,7 +3,7 @@ class Wiki < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
-  attr_accessible :body, :title, :category
+  attr_accessible :body, :title, :category_id, :category
 
   default_scope order('created_at DESC')
 end

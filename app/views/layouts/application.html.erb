@@ -12,7 +12,7 @@
   <ul class="menu horizontal rounded shadowed green">
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Categories" %></li>
+    <li><%= link_to "Categories", categories_path %></li>
       <ul class="pull-right">
         <% if current_user %>
         <li class="user-info">Hello <%= current_user.email %>!</li> <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
@@ -28,17 +28,20 @@
           <button class="ink-dismiss">&times;</button>
           <%= flash[:notice] %>
         </div>
+
       <% elsif flash[:error] %>
-        <div class="ink-alert error">
+        <div class="ink-alert basic error">
           <button class="ink-dismiss">&times;</button>
           <%= flash[:error] %>
         </div>
+
       <% elsif flash[:alert] %>
-        <div class="ink-alert">
+        <div class="ink-alert basic">
           <button class="ink-dismiss">&times;</button>
           <%= flash[:alert] %>
         </div>
-      <% end %>
+
+    <% end %>
 
   <%= yield %>
 </div>

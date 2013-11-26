@@ -10,7 +10,7 @@
       <li>Make learning fun!</li>
     </ul>
   </div>
-    <%= form_for @wiki, html: { class: 'large-70 content-center ink-form-horizontal' } do |f| %>
+    <%= form_for [@category, @wiki], html: { class: 'large-70 content-center ink-form-horizontal' } do |f| %>
       <div class="control-group">
         <%= f.label :title, class: 'control-label' %>
         <div class="controls">

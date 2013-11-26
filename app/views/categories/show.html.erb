@@ -1,0 +1,28 @@
+<h1 class="content-center"><%= @category.name %></h1>
+
+<% if can? :update, @category %>
+  <div class="content-center">
+    <%= link_to "Edit Category", edit_category_path, class: 'ink-button green' %>
+  </div>
+<% end %>
+
+<% if can? :create, Wiki %>
+  <div class="content-center">
+    <%= link_to "Create New Wiki", new_category_wiki_path(@category), class: 'ink-button green' %>
+  </div>
+<% end %>
+
+  <div class="ink-grid">
+    <div class="box gutters">
+    <h5 class="content-center">
+      <%= @category.description %>
+    </h5>
+  </div>
+    <% @wikis.each do |wiki| %>
+    <div class="column-group horizontal-gutters">
+      <h4 class="large-33 medium-33 small-33">
+        <%= link_to wiki.title, [@category, wiki] %>
+      </h4>
+    </div>
+    <% end %>
+  </div>

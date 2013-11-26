@@ -1,23 +1,24 @@
 class WikisController < ApplicationController
-  def index
-    @wikis = Wiki.all
-  end
-
+  
   def show
+    @category = Category.find(params[:category_id])
     @wiki = Wiki.find(params[:id])
   end
 
   def new
+    @category = Category.find(params[:category_id])
     @wiki = Wiki.new
     authorize! :create, Wiki, message: "You must be a member to create a new Wiki."
   end
 
   def create
+    @category = Category.find(params[:category_id])
     @wiki = current_user.wikis.build(params[:wiki])
+    @wiki.category = @category
       authorize! :create, @wiki, message: "You must be signed in to do that."
       if @wiki.save
         flash[:notice] = "Wiki Created!"
-        redirect_to @wiki
+        redirect_to [@category, @wiki]
       else
         flash[:error] = "There was a problem saving your wiki. Please try again."
         render :new
@@ -25,11 +26,13 @@ class WikisController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:category_id])
     @wiki = Wiki.find(params[:id])
     authorize! :edit, @wiki, message: "You must own the Wiki or be a collaborator to edit it."
   end
 
   def update
+    @category = Category.find(params[:category_id])
     @wiki = Wiki.find(params[:id])
     authorize! :update, @wiki, message: "You must own the Wiki or be a collaborator to edit it."
     if @wiki.update_attributes(params[:wiki])
