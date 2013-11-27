@@ -21,7 +21,7 @@
     <% @wikis.each do |wiki| %>
     <div class="column-group horizontal-gutters">
       <h4 class="large-33 medium-33 small-33">
-        <%= link_to wiki.title, [@category, wiki] %>
+        <%= link_to (markdown wiki.title), [@category, wiki] %>
       </h4>
     </div>
     <% end %>

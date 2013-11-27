@@ -1,0 +1,48 @@
+  <%= form_for [@category, @wiki], html: { class: 'large-100 content-center ink-form-horizontal' } do |f| %>
+      <div class="control-group">
+        <%= f.label :title, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :title %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :body, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :body, rows: 15 %>
+        </div>
+      </div>
+      <div class="control-group gutters">
+        <div class="controls">
+          <%= f.submit "Save", class: 'ink-button green' %>
+        </div>
+      </div>
+
+    </div class="control-group gutters">
+      <div class="controls">
+        <%= f.file_field :image %>
+      </div>
+    </div>
+  <% end %>
+
+    
+
+
+  <div class="column-group">
+    <h5 class="content-center large-100 medium-100 small-100 gutters">Guidelines for new Wikis:</h5>
+    <div class="content-center large-25 medium-25">
+      <i class="icon-leaf icon-large content-center"></i>
+      <p>Minimum Wiki length is 100 characters!</p>
+    </div>
+    <div class="content-center large-25 medium-25">
+      <i class="icon-leaf icon-large content-center"></i>
+      <p>Source your content as much as possible!</p>
+    </div>
+    <div class="content-center large-25 medium-25">
+      <i class="icon-leaf icon-large content-center"></i>
+      <p>Do not use unnecessary vulgarity!</p>
+    </div>
+    <div class="content-center large-25 medium-25">
+      <i class="icon-leaf icon-large content-center"></i>
+      <p>Don't forget to use Markdown syntax!</p>
+  </div>
+</div>

@@ -14,8 +14,23 @@
  *= require_tree .
  */
  
+ .ink-hero-gutters {
+  margin-top: 10px;
+ }
+
+ .gutters {
+   margin-top: 5px;
+   margin-right: 5px;
+   margin-bottom: 5px;
+   margin-left: 5px;
+ }
+
  .user-info {
   margin-top: 9px;
+ }
+
+ .gutter-bottom {
+  margin-bottom: 5em;
  }
 
  .nav {
@@ -7503,3 +7518,4 @@ figcaption.dark {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   opacity: 1;
 }
+ 

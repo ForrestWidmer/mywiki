@@ -1,7 +1,10 @@
-<h1><%= @wiki.title %></h1>
+<h1 class="content-center"><%= @wiki.title %></h1>
 
 <% if can? :edit, @wiki %>
-<%= link_to "Edit Wiki", edit_category_wiki_path(@category,@wiki), class: 'ink-button grey' %>
+<%= link_to "Edit Wiki", edit_category_wiki_path(@category,@wiki), class: 'ink-button green' %>
 <% end %>
 
-<p><%= @wiki.body %></p>
+<div class="box content-center">
+  <p><%= markdown @wiki.body %></p>
+  <p><%= image_tag(@wiki.image_url) if @wiki.image? %></p>
+</div>

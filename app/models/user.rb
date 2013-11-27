@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
          :validatable, :confirmable
 
   
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar
   has_many :wikis
   before_create :set_member
+  mount_uploader :avatar, AvatarUploader
 
   ROLES = %w[member moderator admin]
   def role?(base_role)
