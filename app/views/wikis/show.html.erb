@@ -1,10 +1,35 @@
 <h1 class="content-center"><%= @wiki.title %></h1>
 
-<% if can? :edit, @wiki %>
-<%= link_to "Edit Wiki", edit_category_wiki_path(@category,@wiki), class: 'ink-button green' %>
-<% end %>
+<div class="ink-grid">
 
-<div class="box content-center">
-  <p><%= markdown @wiki.body %></p>
-  <p><%= image_tag(@wiki.image_url) if @wiki.image? %></p>
+  <div class="large-100">
+    <% if can? :edit, @wiki %>
+      <%= link_to "Edit Wiki", edit_category_wiki_path(@category,@wiki), class: 'ink-button green' %>
+    <% end %>
+  </div>
+  
+
+    <div class="large-80 medium-80 small-80">
+      <div class="box content-center gutters">
+          <p><%= markdown @wiki.body %></p>
+        </p>
+      </div>
+    </div>
+
+  <div class="large-20 medium-20 small-20">
+    <div class="box content-center gutters">
+      <p><%= image_tag(@wiki.image_url) if @wiki.image? %></p>
+    </div>
+  </div>
+
+  <div class="large-80 medium-80 small-80 gutters">
+    <%= render @discussions %>
+  </div>
+
+  </div class="large-20 medium-20 small-20">
+      <%= render partial: 'discussions/form', locals: { category: @category, wiki: @wiki, discussion: @discussion } %>
+  </div>
+
+  
+
 </div>

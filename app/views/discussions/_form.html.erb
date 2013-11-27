@@ -1,0 +1,24 @@
+<div class="ink-grid">
+  <%= form_for [category, wiki, discussion], htm: { class: 'ink-form' } do |f| %>
+    <% if discussion.errors.any? %>
+      <div class="ink-alert error">
+        <h4>There are <%= pluralize(discussion.errors.count, "error") %> errors.</h4>
+        <ul>
+          <% discussion.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= control_group_tag(discussion.errors[:body]) do %>
+      <div class="controls">
+        <%= f.text_area :body, rows: 8 %>
+      </div>
+    <% end %>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "Add Comment", class: 'ink-button green' %>
+      </div>
+    </div>
+  <% end %>
+</div>

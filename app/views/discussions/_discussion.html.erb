@@ -1,0 +1,9 @@
+<div class="media">
+  <%= link_to '#', class: 'pull-left' do %>
+    <%= image_tag(discussion.user.avatar.small.url) if discussion.user.avatar? %>
+  <% end %>
+  <div class="media-body">
+    <small><%= discussion.user.name %> commented <%= time_ago_in_words(discussion.created_at) %> ago</small>
+    <p><%= discussion.body %></p>
+  </div>
+</div>

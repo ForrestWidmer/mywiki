@@ -4,6 +4,8 @@ class WikisController < ApplicationController
   def show
     @category = Category.find(params[:category_id])
     @wiki = Wiki.find(params[:id])
+    @discussions = @wiki.discussions
+    @discussion = Discussion.new
   end
 
   def new
@@ -38,7 +40,7 @@ class WikisController < ApplicationController
     authorize! :update, @wiki, message: "You must own the Wiki or be a collaborator to edit it."
     if @wiki.update_attributes(params[:wiki])
       flash[:notice] = "Wiki was updated."
-      redirect_to @wiki
+      redirect_to [@category, @wiki]
     else
       flash[:error] = "There was a problem updating your wiki. Please try again."
       render :edit
