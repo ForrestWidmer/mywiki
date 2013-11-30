@@ -14,6 +14,10 @@
  *= require_tree .
  */
  
+ .mywidth {
+  width: 500px;
+ }
+
  .ink-hero-gutters {
   margin-top: 10px;
  }
@@ -45,11 +49,13 @@
 .ink-hero {
   padding: 30px;
   margin-bottom: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
-  color: inherit;
-  background-color: #7DC653;
+  color: black;
+  background: #5AB34D;
 }
 
 .content-center {
@@ -174,9 +180,9 @@ sub {
   bottom: -0.25em;
 }
 img {
-  border: 0;
-  width: auto;
-  max-width: 100%;
+  max-width: auto;
+  max-height: auto;
+  vertical-align: top;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -1296,7 +1302,7 @@ body.animated *[class*="large-"] {
   }
 }
 body {
-  color: #555555;
+  color: #000000;
   font-family: Ubuntu, Arial, sans-serif;
 }
 .sans {
@@ -1320,7 +1326,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #404040;
+  color: #000000;
 }
 h1 {
   font-size: 2.5em;
@@ -6161,6 +6167,9 @@ a .icon-flip-vertical:before {
   background: #eeeeee;
   cursor: not-allowed;
 }
+
+
+
 .ink-button.orange {
   color: #ffffff;
   border-color: #b36d00;

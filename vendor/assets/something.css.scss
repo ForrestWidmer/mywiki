@@ -1,0 +1,62 @@
+.ink-button.black {
+  color: #ffffff;
+  border-color: #b36d00;
+  border-bottom-color: #804e00;
+  text-shadow: 0 -0.09em 0.03em #804e00;
+  background: #000000;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#b36d00');
+  background: -moz-linear-gradient(top, #000000 0%, #b36d00 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(100%, #b36d00));
+  background: -webkit-linear-gradient(top, #000000 0%, #b36d00 100%);
+  background: -o-linear-gradient(top, #000000 0%, #b36d00 100%);
+  background: -ms-linear-gradient(top, #000000 0%, #b36d00 100%);
+  background: linear-gradient(to bottom, #000000 0%, #b36d00 100%);
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+}
+.ink-button.black:hover {
+  background: #ffaa24;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffaa24', endColorstr='#b87000');
+  background: -moz-linear-gradient(top, #ffaa24 0%, #b87000 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffaa24), color-stop(100%, #b87000));
+  background: -webkit-linear-gradient(top, #ffaa24 0%, #b87000 100%);
+  background: -o-linear-gradient(top, #ffaa24 0%, #b87000 100%);
+  background: -ms-linear-gradient(top, #ffaa24 0%, #b87000 100%);
+  background: linear-gradient(to bottom, #ffaa24 0%, #b87000 100%);
+  -webkit-box-shadow: '0 1px 5px rgba(0, 0, 0, 0.1),  inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0em .5em rgba(255, 255, 255, 0.5)';
+  -moz-box-shadow: '0 1px 5px rgba(0, 0, 0, 0.1),  inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0em .5em rgba(255, 255, 255, 0.5)';
+  box-shadow: '0 1px 5px rgba(0, 0, 0, 0.1),  inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0em .5em rgba(255, 255, 255, 0.5)';
+  color: #ffffff;
+  text-decoration: none;
+}
+.ink-button.black:active {
+  background: #db8600;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db8600', endColorstr='#ffaa24');
+  background: -moz-linear-gradient(top, #db8600 0%, #ffaa24 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #db8600), color-stop(100%, #ffaa24));
+  background: -webkit-linear-gradient(top, #db8600 0%, #ffaa24 100%);
+  background: -o-linear-gradient(top, #db8600 0%, #ffaa24 100%);
+  background: -ms-linear-gradient(top, #db8600 0%, #ffaa24 100%);
+  background: linear-gradient(to bottom, #db8600 0%, #ffaa24 100%);
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.25) inset;
+  -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.25) inset;
+}
+.ink-button.black.flat {
+  background: #e68c00;
+}
+.ink-button.black.flat:hover {
+  background: #cc7d00;
+}
+.ink-button.black[disabled],
+.ink-button.black .ink-disabled {
+  background: #dfc69f;
+  box-shadow: none;
+  border: none;
+  text-shadow: none;
+}
+.ink-button.black[disabled]:hover,
+.ink-button.black .ink-disabled:hover {
+  background: #dfc69f;
+  cursor: not-allowed;

@@ -1,6 +1,6 @@
 <div class="ink-form content-center">
 
-<h2>Sign up!</h2>
+<h2>Sign up! (Free Account)</h2>
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'top-space control-group column-group gutters' }) do |f| %>
       <%= devise_error_messages! %>
 
@@ -24,7 +24,7 @@
   </div>
   <div class="control-group">
     <div class="controls">
-      <%= f.submit "Sign up", class: 'btn' %>
+      <%= f.submit "Sign up", class: 'ink-button green' %>
     </div>
   </div>
   <div class="control-group">

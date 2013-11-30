@@ -8,19 +8,22 @@
     <% end %>
   </div>
   
-
     <div class="large-80 medium-80 small-80">
       <div class="box content-center gutters">
-          <p><%= markdown @wiki.body %></p>
-        </p>
+          <p><%= word_wrap(@wiki.body, :line_width => 80) %></p>
       </div>
     </div>
 
-  <div class="large-20 medium-20 small-20">
-    <div class="box content-center gutters">
-      <p><%= image_tag(@wiki.image_url) if @wiki.image? %></p>
+  <% if @wiki.image? %>
+    <div class="large-20 medium-20 small-20">
+      <div class="box content-center gutters">
+         <div class="controls">
+          <p><%= image_tag(@wiki.image_url) %></p>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
+
 
   <div class="large-80 medium-80 small-80 gutters">
     <%= render @discussions %>

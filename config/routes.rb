@@ -1,6 +1,10 @@
 Mywiki::Application.routes.draw do
   
   
+  get "account/index"
+
+  get "account/paid"
+
   get "discussions/create"
 
   devise_for :users
