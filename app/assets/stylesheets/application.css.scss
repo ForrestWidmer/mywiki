@@ -29,12 +29,17 @@
    margin-left: 5px;
  }
 
+.gutters-side {
+   margin-right: 5px;
+   margin-left: 5px;
+ }
+
  .user-info {
   margin-top: 9px;
  }
 
  .gutter-bottom {
-  margin-bottom: 5em;
+  margin-bottom: 1em;
  }
 
  .nav {
@@ -54,7 +59,7 @@
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
-  color: black;
+  color: inherit;
   background: #5AB34D;
 }
 
@@ -69,6 +74,18 @@
   box-shadow: 0 2px 3px 0 #dddddd;
   border: 1px solid #BBB;
   background-color: #FFF;
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.box-green {
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 3px 0 #dddddd;
+  -moz-box-shadow: 0 2px 3px 0 #dddddd;
+  box-shadow: 0 2px 3px 0 #dddddd;
+  border: 1px solid #BBB;
+  background-color: #4a9b17;
   padding: 1em;
   margin-top: 1em;
   margin-bottom: 1em;

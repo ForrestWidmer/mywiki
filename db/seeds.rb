@@ -1,7 +1,7 @@
 require 'faker'
  
 categories = []
-5.times do
+6.times do
   categories << Category.create(
     name: Faker::Lorem.words(rand(1..3)).join(" "),
     description: Faker::Lorem.paragraph(rand(1..2))
