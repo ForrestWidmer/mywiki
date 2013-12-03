@@ -9,6 +9,8 @@ Mywiki::Application.routes.draw do
 
   devise_for :users
 
+  resources :charges
+
   resources :categories do
     resources :wikis, except: [:index] do
       resources :discussions, only: [:create]
