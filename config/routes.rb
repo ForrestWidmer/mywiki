@@ -1,6 +1,10 @@
 Mywiki::Application.routes.draw do
   
   
+  get "webhook/receiver"
+
+  get "webhook_processor/receiver"
+
   get "account/index"
 
   get "account/paid"

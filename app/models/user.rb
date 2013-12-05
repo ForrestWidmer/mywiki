@@ -21,5 +21,6 @@ class User < ActiveRecord::Base
   def set_member
     self.role = 'member'
   end
+ 
 
 end

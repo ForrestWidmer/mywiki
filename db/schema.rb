@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131127211849) do
+ActiveRecord::Schema.define(:version => 20131205005946) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(:version => 20131127211849) do
     t.text     "description"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "charges", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "creates", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "discussions", :force => true do |t|
@@ -31,6 +43,14 @@ ActiveRecord::Schema.define(:version => 20131127211849) do
 
   add_index "discussions", ["user_id"], :name => "index_discussions_on_user_id"
   add_index "discussions", ["wiki_id"], :name => "index_discussions_on_wiki_id"
+
+  create_table "images", :force => true do |t|
+    t.integer  "wiki_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "images", ["wiki_id"], :name => "index_images_on_wiki_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -52,10 +72,17 @@ ActiveRecord::Schema.define(:version => 20131127211849) do
     t.datetime "updated_at",                             :null => false
     t.string   "role"
     t.string   "avatar"
+    t.string   "customer_id"
+    t.string   "stripe_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "webhook_processors", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "wikis", :force => true do |t|
     t.string   "title"

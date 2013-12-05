@@ -13,6 +13,10 @@
  *= require font-awesome
  *= require_tree .
  */
+
+ .hide {
+  display: none;
+ }
  
  .mywidth {
   width: 500px;

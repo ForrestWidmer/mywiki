@@ -1,5 +1,6 @@
+<h2 class="content-center">Sign in</h2>
 <div class="ink-form content-center">
-  <h2>Sign in</h2>
+  
 
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {  class: 'top-space control-group column-group gutters' }) do |f| %>
 
@@ -17,7 +18,7 @@
     </div>
     <div class="control-group">
       <div class="controls">
-        <%= f.submit "Sign in", class: 'btn' %>
+        <%= f.submit "Sign in", class: 'ink-button green' %>
       </div>
     </div>
     <div class="control-group">
