@@ -9,9 +9,11 @@ class Wiki < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  attr_accessible :body, :title, :category_id, :category, :image, :images_attributes
+  attr_accessible :body, :title, :category_id, :category, :image, :images_attributes, :public
 
   default_scope order('created_at DESC')
+
+  scope :visible_to, lambda { |user| user ? scoped : where(public: true) }
 
   validates :title, length: { minimum: 5, maximum: 20 }, presence: true
   validates :body, length: { minimum: 5 }, presence: true

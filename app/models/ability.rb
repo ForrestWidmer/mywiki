@@ -17,12 +17,18 @@ class Ability
       can :destroy, Discussion
       can :manage, Category
     end
-
+    # Paid users can make wikis private and add collaborators
+    if user.role? :paid
+      can :destroy, Wiki
+      can :destroy, Discussion
+      can :read, Wiki, public: false
+    end  
     # Admins can do anything
     if user.role? :admin
       can :manage, :all
     end
 
-    can :read, :all
+    can :read, Wiki, public: true
+    can :read, Discussion
   end
 end

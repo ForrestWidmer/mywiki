@@ -7,6 +7,18 @@
       <%= link_to "Edit Wiki", edit_category_wiki_path(@category,@wiki), class: 'ink-button green' %>
     <% end %>
   </div>
+
+  <div class="large-100">
+    <% if can? :destroy, @wiki %>
+      <%= link_to "Collaborators", edit_category_wiki_path(@category,@wiki), class: 'ink-button green' %>
+    <% end %>
+  </div>
+
+  <div class="large-100">
+    <% if can? :destroy, @wiki %>
+      <%= link_to "Delete Wiki", edit_category_wiki_path(@category,@wiki), class: 'ink-button red' %>
+    <% end %>
+  </div>
   
     <div class="large-80 medium-80 small-80">
       <div class="box content-center gutters">

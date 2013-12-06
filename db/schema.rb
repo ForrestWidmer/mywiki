@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(:version => 20131205005946) do
   end
 
   create_table "charges", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "description"
+    t.string   "plan"
+    t.string   "card"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "creates", :force => true do |t|
@@ -86,9 +89,10 @@ ActiveRecord::Schema.define(:version => 20131205005946) do
 
   create_table "wikis", :force => true do |t|
     t.string   "title"
+    t.boolean  "public",      :default => true
     t.text     "body"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
     t.integer  "category_id"
     t.string   "image"

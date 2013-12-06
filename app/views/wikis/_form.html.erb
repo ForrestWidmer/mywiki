@@ -12,13 +12,26 @@
           <%= f.text_area :body, rows: 15, cols: 75 %>
         </div>
       </div>
+
+  
       <div class="control-group gutters">
         <div class="controls">
           <%= f.submit "Save", class: 'ink-button green' %>
         </div>
       </div>
 
-    </div class="control-group gutters">
+    <% if can? :read, @wiki %>
+      <div class="control-group gutters">
+        <div class="controls">
+          <%= f.label :public, class: 'checkbox' do %>
+            <%= f.check_box :public %> Public Wiki
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    
+
+    <div class="control-group gutters">
       <div class="controls">
         <%= f.file_field :image %>
       </div>

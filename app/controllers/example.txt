@@ -1,0 +1,1 @@
+response = Stripe::Customer.retrieve(u.customer_id)

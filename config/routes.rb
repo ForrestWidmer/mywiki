@@ -11,12 +11,13 @@ Mywiki::Application.routes.draw do
 
   get "discussions/create"
 
+
   devise_for :users
 
   resources :charges
 
   resources :categories do
-    resources :wikis, except: [:index] do
+    resources :wikis do
       resources :discussions, only: [:create]
     end
   end
