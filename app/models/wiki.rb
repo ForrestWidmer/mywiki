@@ -1,6 +1,7 @@
 class Wiki < ActiveRecord::Base
   has_many :discussions
   has_many :images, :dependent => :destroy
+  has_many :collaborators
 
   accepts_nested_attributes_for :images
 
@@ -9,7 +10,7 @@ class Wiki < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  attr_accessible :body, :title, :category_id, :category, :image, :images_attributes, :public
+  attr_accessible :body, :title, :category_id, :category, :image, :images_attributes, :public, :collaborator
 
   default_scope order('created_at DESC')
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205005946) do
+ActiveRecord::Schema.define(:version => 20131206005232) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(:version => 20131205005946) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "collaborators", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "wiki_id"
+  end
+
+  add_index "collaborators", ["wiki_id"], :name => "index_collaborators_on_wiki_id"
 
   create_table "creates", :force => true do |t|
     t.string   "title"

@@ -2,7 +2,6 @@ class WikisController < ApplicationController
   
   def show
     @category = Category.find(params[:category_id])
-    authorize! :read, @wiki, message: "You must be the owner or a collaborator to do that."
     @wiki = Wiki.find(params[:id])
     @discussions = @wiki.discussions
     @discussion = Discussion.new

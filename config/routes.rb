@@ -1,13 +1,6 @@
 Mywiki::Application.routes.draw do
   
   
-  get "webhook/receiver"
-
-  get "webhook_processor/receiver"
-
-  get "account/index"
-
-  get "account/paid"
 
   get "discussions/create"
 
@@ -16,9 +9,13 @@ Mywiki::Application.routes.draw do
 
   resources :charges
 
+  resources :accounts
+
+  resources :webhooks
+
   resources :categories do
     resources :wikis do
-      resources :discussions, only: [:create]
+      resources :collaborators, :discussions, only: [:create]
     end
   end
 
