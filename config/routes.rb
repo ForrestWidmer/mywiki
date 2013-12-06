@@ -1,15 +1,15 @@
 Mywiki::Application.routes.draw do
   
-  
+  get "account/index"
 
   get "discussions/create"
+
+  get "categories/wikis/collaborators", to: "collaborators#index"
 
 
   devise_for :users
 
   resources :charges
-
-  resources :accounts
 
   resources :webhooks
 

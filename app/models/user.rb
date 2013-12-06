@@ -8,9 +8,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :role
   has_many :wikis
   has_many :discussions
-  has_many :collaborators
   before_create :set_member
   mount_uploader :avatar, AvatarUploader
+
+  has_and_belongs_to_many :wiki_collaborations, :join_table => 'wiki_collaborators'
 
   ROLES = %w[member paid moderator admin]
   def role?(base_role)

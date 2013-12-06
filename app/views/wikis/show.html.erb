@@ -7,6 +7,12 @@
       <%= link_to "Edit Wiki", edit_category_wiki_path(@category,@wiki), class: 'ink-button green' %>
     <% end %>
   </div>
+
+  <div class="large-100">
+    <% if can? :manage, Collaborator %>
+      <%= link_to "Collaborators", category_wiki_collaborators_path(@category,@wiki,@collaborators), class: 'ink-button green' %>
+    <% end %>
+  </div>
   
     <div class="large-80 medium-80 small-80">
       <div class="box content-center gutters">

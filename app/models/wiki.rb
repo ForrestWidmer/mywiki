@@ -1,7 +1,6 @@
 class Wiki < ActiveRecord::Base
   has_many :discussions
   has_many :images, :dependent => :destroy
-  has_many :collaborators
 
   accepts_nested_attributes_for :images
 
@@ -20,5 +19,7 @@ class Wiki < ActiveRecord::Base
   validates :body, length: { minimum: 5 }, presence: true
   validates :category, presence: true
   validates :user, presence: true
+
+  has_and_belongs_to_many :collaborators, :class_name => 'User', :join_table => 'wiki_collaborators'
 
 end
