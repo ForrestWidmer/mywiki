@@ -1,0 +1,11 @@
+<div class="ink-grid">
+    <h4>
+      <%= link_to (wiki.title), [wiki.category, wiki] %>
+    </h4>
+    <small>
+      <%= image_tag(wiki.user.avatar.tiny.url) if wiki.user.avatar? %>
+      submitted <%= time_ago_in_words(wiki.created_at) %> ago by
+      <%= link_to wiki.user.name, wiki.user %><br/>
+      <%= wiki.discussions.count %> Comments
+    </small>
+</div>

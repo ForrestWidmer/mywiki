@@ -1,11 +1,23 @@
-<h3 class="content-center"><a href="#" class="js-show-hide" data-selector="js-edit-user">Edit User Settings (Click me!)</a></h3>
-  <div class="js-edit-user hide">
 
-    <div class="ink-form content-center">  
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="ink-grid">
+    <div class="box-green">
+      <div class="column-group">
+        <p class="large-50 medium-50 content-left"><%= image_tag(current_user.avatar.url) if current_user.avatar? %></p>
+        <h01 class="large-50 medium-50 content-left white"><%= @user.username %></h01>
+      </div>
+    </div>
+</div>
 
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'top-space control-group column-group', :method => :put }) do |f| %>
+<div class="large-100 medium-100">
+  <h3 class="content-center"><a href="#" class="js-show-hide" data-selector="js-edit-user">Edit User Settings</a></h3>
+    <div class="js-edit-user hide">
+      <div class="ink-form content-center">  
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'top-space control-group column-group', :method => :put }) do |f| %>
         <%= devise_error_messages! %>
+
+        <div class="control-group"><%= f.label :username %><br />
+            <%= f.text_field :username %>
+        </div>
 
         <div class="control-group"><%= f.label :email %><br />
         <%= f.email_field :email, :autofocus => true %></div>
@@ -14,13 +26,16 @@
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <div class="control-group"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, :autocomplete => "off" %></div>
+        <div class="control-group"><%= f.label :password %><br /><small>(only if you want to change your password)</small> 
+          <br />
+          <%= f.password_field :password, :autocomplete => "off" %>
+          
+        </div>
 
         <div class="control-group"><%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation %></div>
 
-        <div class="control-group"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <div class="control-group"><%= f.label :current_password %><br /><small>(we need your current password to confirm your changes)</small><br />
         <%= f.password_field :current_password %></div>
 
         <div class="control-group">
@@ -35,43 +50,43 @@
       <% end %>
     </div>
   </div>
-
-
-<div class="ink-grid">
-  <div class="content-center">
-    <div class="large-50 medium-50">
-      <h3 class="gutters">Cancel my account</h3>
-
-      <p>Unhappy?</p>
-
-      <%= button_to "Cancel my account", registration_path(resource_name), class: 'ink-button green', :data => { :confirm => "Are you sure?" }, :method => :delete %>
-    </div>
-
-
-    <div class="large-50 medium-50">
-      <h3>Want to go Premium?</h3>
-
-      <p>(This will open a pop-up window.)</p>
-
-      <%= form_tag charges_path do %>
-        <article>
-          <label class="amount">
-            <span>Amount: $5.00</span>
-          </label>
-        </article>
-
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Premium User Account"
-          data-amount="500">
-        </script>
-      <% end %>
-
-    </div>
-  </div>
 </div>
+
+
+<div class="large-50 medium-50">
+  <h3 class="content-center"><a href="#" class="js-show-hide" data-selector="js-cancel-account">Cancel my account.</a></h3>
+    <div class="js-cancel-account hide">
+      <div class="content-center">
+        <p>Unhappy?</p>
+        <%= button_to "Cancel my account", registration_path(resource_name), class: 'ink-button green', :data => { :confirm => "Are you sure?" }, :method => :delete %>
+      </div>
+    </div>
+</div>
+
+
+    <div class="large-50 medium-50">
+      <h3 class="content-center"><a href="#" class="js-show-hide" data-selector="js-go-premium">Want to go Premium?</a></h3>
+        <div class="js-go-premium hide">
+          <div class="content-center">  
+            <p>(This will open a pop-up window.)</p>
+              <%= form_tag charges_path do %>
+              <article>
+                <label class="amount">
+                <span>Amount: $5.00</span>
+                </label>
+              </article>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Premium User Account"
+                data-amount="500">
+              </script>
+              <% end %>
+          </div>
+        </div>
+    </div>
 
 <div class="large-100 medium-100 content-center">
   <%= link_to "Back to Home", :back %>
 </div>
 
+</div>

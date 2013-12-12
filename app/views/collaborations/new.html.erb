@@ -1,0 +1,7 @@
+
+<%# select("user", "user_id", User.find_all_by_id(User.pluck(:id) {|u| [u.name, u.id] }, {include_blank: 'Collaborators'}) %>
+
+
+ <%= select("user", "user_id", Collaboration.pluck(:user_id) {|u| [u.name, u.id] }, {include_blank: 'Collaborators'}) %>
+
+ <%= collection_select("user", "user_id", User.all, :id, :name) %>

@@ -1,24 +1,27 @@
 <div class="ink-grid">
 
 
-    <div class="box-green content-center">
+    <div class="box-green content-left">
       <div class="column-group">
-        <h1 class="large-100 gutter-bottom ink-label success">My Wiki</h1>
-        <div class="large-33 medium-33"><h2 class="ink-label success">Clean.</h2></div>
-        <div class="large-33 medium-33"><h2 class="ink-label success">Simple.</h2></div>
-        <div class="large-33 medium-33"><h2 class="ink-label success">Fun.</h2></div>
+        <h0 class="large-100 white gutter-bottom">Wikimachine</h0>
       </div>
     </div>
     
 
-    <div class="box content-center"> 
-      <h5>My Wiki allows users to build, share, and customize wikis using Markdown syntax!</h5>
-          <h5>
-            <%= link_to "Sign In!", new_user_session_path, class: 'ink-button green' %> or 
-            <%= link_to "Sign Up!", account_index_path, class: 'ink-button green' %>
-          </h5>
-        <h6>Click the "Sign Up!" button to learn more about why you should join us!</h6>
+    <div class="box content-center gutters"> 
+      <h5>Wikimachine allows users to build, share, and customize wikis using Markdown syntax!</h5>
     </div>
 
+    <div class="large-50 medium-50 content-center">
+      <h1 class="white">Sign In Here!</h1>
+      <%= link_to "Sign In!", new_user_session_path, class: 'ink-button green' %>
+    </div>
+
+    <div class="large-50 medium-50 content-center">
+      <h1 class="white">Sign Up Here!</h1>
+      <%= link_to "Sign Up!", new_user_registration_path, class: 'ink-button green' %>
+    </div>
+
+    
 
 </div>

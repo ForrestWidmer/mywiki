@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <div class="ink-grid">
   <div class="ink-navigation nav">
     <ul class="menu horizontal rounded shadowed green large-100 medium-100 small-100">
@@ -16,11 +15,18 @@
       <li><%= link_to "Categories", categories_path %></li>
         <ul class="pull-right">
           <% if current_user %>
-          <li><%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
-              Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <div class="white"><li><%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
+
+              Hello <%= link_to (current_user.username || current_user.email), current_user %>! <%= link_to edit_user_registration_path do %>
+                  <i class="icon-user"> </i>
+                <% end %>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="icon-share-alt"> </i>
+                <% end %>
+                </li></div>
           <% else %>
-            <%= link_to "Sign In", new_user_session_path %> or 
-            <%= link_to "Sign Up", new_user_registration_path %>
+            <div class="white"><li><%= link_to "Sign In", new_user_session_path %> or 
+            <%= link_to "Sign Up", new_user_registration_path %></li></div>
           <% end %>
         </ul>
     </ul>

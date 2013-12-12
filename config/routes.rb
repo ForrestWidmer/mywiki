@@ -1,10 +1,13 @@
 Mywiki::Application.routes.draw do
   
+
+
+  get "users/show"
+
   get "account/index"
 
   get "discussions/create"
 
-  get "categories/wikis/collaborators", to: "collaborators#index"
 
 
   devise_for :users
@@ -13,9 +16,12 @@ Mywiki::Application.routes.draw do
 
   resources :webhooks
 
+  resources :users, only: [:show]
+
   resources :categories do
     resources :wikis do
-      resources :collaborators, :discussions, only: [:create]
+      resources :discussions, only: [:create]
+      resources :collaborations
     end
   end
 

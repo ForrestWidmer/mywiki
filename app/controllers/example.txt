@@ -1,1 +1,41 @@
 response = Stripe::Customer.retrieve(u.customer_id)
+
+Categories Show View:
+
+ <% @wikis.each do |wiki| %>
+        <div class="content-center large-25 medium-50 small-50">
+          <h6 class="content-center"><%= link_to (markdown wiki.title), [@category, wiki] %></h6>
+            <div class="box gutters">
+              <%= if wiki.image? %>
+                <p><%= image_tag(@wiki.image) %></p>
+              <% else %>
+                <p>An image will go here soon.</p>
+              <% end %>
+            </div>      
+        </div>
+    <% end %>
+
+    @wiki.collaborations 
+    wiki_id: 1, user_id: 234, role: manager
+    @collaborations = current_user.collaborations
+
+    @collaborations.each do |c.wiki_id|
+     link_to wiki_path(c.wiki_id)
+    end
+collaboration:
+  id, wiki_id, user_id, role   avatar
+  1         5        1 admin
+  3         7        2  user
+  4         7        1  user 
+
+  @wiki.collaborations.where(user_id: 1)
+  @user.collaborations 
+
+  rails c
+  
+  u = User.first
+  u.collaboration.new(wiki_id: 4)
+  c = Collaboration.new(user_id: 1, wiki_id: 4)
+  c.save
+
+  u.collaborations

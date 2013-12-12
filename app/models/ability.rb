@@ -22,7 +22,7 @@ class Ability
       can :destroy, Wiki
       can :destroy, Discussion
       can :read, Wiki, public: false
-      can :manage, Collaborator
+      can :manage, Collaboration
     end  
     # Admins can do anything
     if user.role? :admin

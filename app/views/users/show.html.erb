@@ -1,0 +1,29 @@
+ <div class="ink-grid"> 
+  <div class="box">
+    <h2 class="content-center"><%= @user.username %></h2>
+      <div class="content-center">
+        <small>
+          <%= pluralize(@user.wikis.count, 'wiki') %>,
+          <%= pluralize(@user.discussions.count, 'discussion') %>
+        </small>
+        <li class="active"><a href="#wikis" data-toggle="tab">Wikis</a></li>
+        <li><a href="#discussions" data-toggle="tab">Comments</a></li>
+      </div>
+  </div>
+</div>
+
+
+
+<br/>
+
+<div class="ink-grid">      
+    <div class="tab-content">
+      <div class="tab-pane active" id="wikis">
+        <%= render @wikis %>
+      </div>
+      <div class="tab-pane" id="discussions">
+        <%= render @user.discussions %>
+      </div>
+    </div>
+  </div>
+</div>

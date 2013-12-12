@@ -9,8 +9,8 @@
   </div>
 
   <div class="large-100">
-    <% if can? :manage, Collaborator %>
-      <%= link_to "Collaborators", category_wiki_collaborators_path(@category,@wiki,@collaborators), class: 'ink-button green' %>
+    <% if can? :manage, Collaboration %>
+      <%= link_to "Collaborators", new_category_wiki_collaboration_path(@category,@wiki,@collaborations), class: 'ink-button green' %>
     <% end %>
   </div>
   

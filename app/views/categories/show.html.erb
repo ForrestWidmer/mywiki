@@ -1,5 +1,5 @@
 <h1 class="content-center"><%= @category.name %></h1>
-
+<div class="ink-grid">
   <% if can? :update, @category %>
     <div class="content-center">
       <%= link_to "Edit Category", edit_category_path, class: 'ink-button green' %>
@@ -22,7 +22,8 @@
         <div class="content-center large-25 medium-50 small-50">
           <h6 class="content-center"><%= link_to (markdown wiki.title), [@category, wiki] %></h6>
             <div class="box gutters">
-              An image will go here later
+              <%= image_tag(wiki.image.url) if wiki.image? %>
             </div>      
         </div>
     <% end %>
+</div>
