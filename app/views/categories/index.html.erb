@@ -1,16 +1,24 @@
 
-<h1 class="content-center">Wiki Categories</h1>
-<% if can? :create, Category %>
+<div class="ink-grid">
+  <div class="column-group">
+    <div class="large-33 medium-33 small-100 push-center">
+      <div class="box">
+        <h1 class="content-center green">Wiki Categories</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<%# if can? :create, Category %>
   <div class="content-center"><%= link_to "Create a New Category", new_category_path, class: 'ink-button green' %></div>
-<% end %>
+<%# end %>
 
 
   <% @categories.each do |category| %>
     <div class="ink-grid">
       <div class="content-center large-33 medium-33">
-        <h6 class="content-center"><%= link_to category.name, category %></h6>
+        <h6 class="content-center"><%= link_to category.name.capitalize!, category, class: 'class1' %></h6>
           <div class="box gutters">
-            An image will go here later
+            <%= image_tag("/assets/green_field.jpg") %>      
           </div>      
       </div>
     </div>

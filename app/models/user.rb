@@ -7,10 +7,9 @@ class User < ActiveRecord::Base
   
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :role, :username
 
-  has_many :wikis
   has_many :discussions
   has_many :collaborations
-  #has_many :wikis, :through => :collaborators
+  has_many :wikis, :through => :collaborations
 
   before_create :set_member
   mount_uploader :avatar, AvatarUploader

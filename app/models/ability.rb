@@ -7,11 +7,14 @@ class Ability
     # if a member, they can manage their own posts 
     # (or create new ones)
     if user.role? :member
-      can :manage, Wiki, :user_id => user.id
+      can :manage, Wiki#, Wiki.all do |w|
+        #w.users.include? current_user
+      #end  #, :user_id => user.collaborations.id
       can :manage, Discussion, :user_id => user.id
     end
-
+    #if user.collaborations.role?(wiki_id)
     # Moderators can delete any post
+    #end
     if user.role? :moderator
       can :destroy, Wiki
       can :destroy, Discussion
@@ -31,5 +34,6 @@ class Ability
 
     can :read, Wiki, public: true
     can :read, Discussion
+    can :read, Category
   end
 end

@@ -8,9 +8,9 @@ Mywiki::Application.routes.draw do
 
   get "discussions/create"
 
+  #devise_for :users
 
-
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :charges
 

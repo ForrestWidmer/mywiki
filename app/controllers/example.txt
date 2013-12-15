@@ -39,3 +39,15 @@ collaboration:
   c.save
 
   u.collaborations
+
+  <div class="column-group">
+  <div class="large-50 medium-50 content-center">
+    <h3>Wiki's/Comments</h3>
+  </div>
+</div>
+
+<div class="column-group">
+  <div class="large-50 medium-50 content-center">
+    <h3>Collaborations</h3>
+  </div>
+</div>

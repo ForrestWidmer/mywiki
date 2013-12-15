@@ -7,6 +7,10 @@ class WikisController < ApplicationController
     @discussion = Discussion.new
   end
 
+  def index
+    @wiki = Wiki.all
+  end
+
   def new
     @category = Category.find(params[:category_id])
     @wiki = Wiki.new

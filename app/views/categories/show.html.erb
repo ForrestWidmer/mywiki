@@ -1,16 +1,28 @@
-<h1 class="content-center"><%= @category.name %></h1>
+
 <div class="ink-grid">
-  <% if can? :update, @category %>
+  <div class="column-group">
+    <div class="large-33 medium-33 small-100 push-center">
+      <div class="box">
+        <h1 class="content-center green"><%= @category.name.capitalize! %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="ink-grid">
+  <%# if can? :update, @category %>
     <div class="content-center">
       <%= link_to "Edit Category", edit_category_path, class: 'ink-button green' %>
     </div>
-  <% end %>
+  <%# end %>
 
-  <% if can? :create, Wiki %>
+  <%# if can? :create, Wiki %>
     <div class="content-center">
       <%= link_to "Create New Wiki", new_category_wiki_path(@category), class: 'ink-button green' %>
     </div>
-  <% end %>
+  <%# end %>
 
     <div class="box gutters">
       <h5 class="content-center">
@@ -20,10 +32,18 @@
 
   <% @wikis.each do |wiki| %>
         <div class="content-center large-25 medium-50 small-50">
-          <h6 class="content-center"><%= link_to (markdown wiki.title), [@category, wiki] %></h6>
+          <h6 class="content-center"><%= link_to (markdown wiki.title.capitalize!), [@category, wiki], class: 'class1' %></h6>
             <div class="box gutters">
-              <%= image_tag(wiki.image.url) if wiki.image? %>
+              <% if wiki.image? %>
+                <%= image_tag(wiki.image.url) %>
+              <% else %>
+                <%= image_tag("/assets/green_field.jpg") %>
+              <% end %>
             </div>      
         </div>
     <% end %>
 </div>
+
+
+
+

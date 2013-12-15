@@ -9,6 +9,7 @@ class CollaborationsController < ApplicationController
     @collaboration = Collaboration.new
     name = User.name
     authorize! :create, Collaboration, message: "You must be a premium user to create a collaboration."
+    @collaboration.save!
   end  
 
   def create

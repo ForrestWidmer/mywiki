@@ -1,17 +1,25 @@
-<h1 class="content-center"><%= @wiki.title %></h1>
+<div class="ink-grid">
+  <div class="column-group">
+    <div class="large-100 medium-100 small-100 push-center">
+      <div class="box">
+        <h1 class="content-center green"><%= @wiki.title.capitalize! %></h1>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="ink-grid">
 
   <div class="large-100">
-    <% if can? :edit, @wiki %>
+    <%# if can? :edit, @wiki %>
       <%= link_to "Edit Wiki", edit_category_wiki_path(@category,@wiki), class: 'ink-button green' %>
-    <% end %>
+    <%# end %>
   </div>
 
   <div class="large-100">
-    <% if can? :manage, Collaboration %>
+    <%# if can? :manage, Collaboration %>
       <%= link_to "Collaborators", new_category_wiki_collaboration_path(@category,@wiki,@collaborations), class: 'ink-button green' %>
-    <% end %>
+    <%# end %>
   </div>
   
     <div class="large-80 medium-80 small-80">

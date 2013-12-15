@@ -1,4 +1,6 @@
-<div class="ink-grid">
+<div class="ink-grid">
+  <div class="box">
+
     <h4>
       <%= link_to (wiki.title), [wiki.category, wiki] %>
     </h4>
@@ -8,4 +10,5 @@
       <%= link_to wiki.user.name, wiki.user %><br/>
       <%= wiki.discussions.count %> Comments
     </small>
+  </div>
 </div>
