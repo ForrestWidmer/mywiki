@@ -51,3 +51,17 @@ collaboration:
     <h3>Collaborations</h3>
   </div>
 </div>
+
+
+<% @recentwikis.each do |wiki| %>
+  <div class="content-center large-25 medium-50 small-50">
+    <div class="box gutters">
+      <h6 class="content-center"><%= link_to (markdown wiki.title.capitalize!), category_wiki_path, class: 'class1' %></h6>
+        <% if wiki.image? %>
+          <%= image_tag(wiki.image.url) %>
+        <% else %>
+          <%= image_tag("/assets/green_field.jpg") %>
+        <% end %>
+    </div>      
+  </div>
+<% end %>

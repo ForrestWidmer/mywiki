@@ -7,21 +7,39 @@
       </div>
     </div>
     
-
+  <div class="column-group">
     <div class="box content-center gutters"> 
       <h5>Wikimachine allows users to build, share, and customize wikis using Markdown syntax!</h5>
     </div>
 
-    <div class="large-50 medium-50 content-center">
-      <h1 class="white">Sign In Here!</h1>
-      <%= link_to "Sign In!", new_user_session_path, class: 'ink-button green' %>
-    </div>
-
-    <div class="large-50 medium-50 content-center">
-      <h1 class="white">Sign Up Here!</h1>
-      <%= link_to "Sign Up!", new_user_registration_path, class: 'ink-button green' %>
+    <div class="large-100 medium-100 content-center">
+      <h1 class="white">Click here to start a wiki!</h1>
+      <%= link_to "Create a Wiki", new_user_session_path, class: 'ink-button green' %>
     </div>
 
     
+  </div>
 
+    
+
+
+
+  <div class="column-group vertical-space">
+    <div class="large-100 medium-100 gutters">
+      <h1 class="white content-center gutters"><i class="icon-arrow-down"></i> Most recent Wikis!<i class="icon-arrow-down gutters"></i> </h1>
+    </div>
+
+    <% @wiki.each do |wiki| %>
+    <div class="content-center large-33 medium-33 small-50">
+      <div class="box gutters">
+        <h6 class="content-center-nomarg"><%= link_to (markdown wiki.title.capitalize), category_wiki_path(wiki.category, wiki), class: 'class1' %></h6>
+        <% if wiki.image? %>
+        <%= image_tag(wiki.image.tab.url) %>
+        <% else %>
+        <%= image_tag("/assets/green_field.jpg") %>
+        <% end %>
+      </div>      
+    </div>
+    <% end %>
+  </div>
 </div>

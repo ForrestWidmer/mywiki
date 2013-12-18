@@ -90,6 +90,10 @@ A.class1:active {text-decoration: none; color: #199900;}
   background: #5AB34D;
 }
 
+.content-center-nomarg {
+  margin-bottom: 0px
+}
+
 .content-center {
   margin-bottom: 15px
 }
@@ -632,7 +636,7 @@ body.animated *[class*="large-"] {
   margin-right: 2em;
 }
 .vertical-space {
-  margin-top: 2em;
+  margin-top: 10em !important;
   margin-bottom: 2em;
 }
 .half-vertical-space {
@@ -948,8 +952,8 @@ body.animated *[class*="large-"] {
     margin-right: 1.5em;
   }
   .vertical-space {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin-top: 8em;
+    margin-bottom: 8em;
   }
   .half-vertical-space {
     margin-top: 0.75em;
@@ -1263,8 +1267,8 @@ body.animated *[class*="large-"] {
     margin-right: 1em;
   }
   .vertical-space {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 20em;
+    margin-bottom: 2em;
   }
   .half-vertical-space {
     margin-top: 0.5em;

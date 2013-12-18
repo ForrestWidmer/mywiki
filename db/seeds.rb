@@ -3,7 +3,7 @@ require 'faker'
 categories = []
 6.times do
   categories << Category.create(
-    name: Faker::Lorem.words(rand(1..3)).join(" "),
+    name: Faker::Lorem.words(rand(1..2)).join(" "),
     description: Faker::Lorem.paragraph(rand(1..2))
     )
 end
@@ -25,7 +25,7 @@ rand(4..10).times do
  
   rand(5..12).times do
     p = u.wikis.create(
-      title: Faker::Lorem.words(rand(1..4)).join(" "), 
+      title: Faker::Lorem.words(rand(1..2)).join(" "), 
       body: Faker::Lorem.paragraphs(rand(10..40)).join("\n"),
       category_id: categories.sample.id)
     # set the created_at to a time within the past year

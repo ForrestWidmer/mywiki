@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :validatable, :confirmable
 
   
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :role, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :username
 
   has_many :discussions
   has_many :collaborations
