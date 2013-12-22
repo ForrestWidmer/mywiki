@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213233127) do
+ActiveRecord::Schema.define(:version => 20131218203543) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -27,14 +27,6 @@ ActiveRecord::Schema.define(:version => 20131213233127) do
     t.string   "card"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "collaborations", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "wiki_id"
-    t.integer  "user_id"
-    t.string   "role"
   end
 
   create_table "discussions", :force => true do |t|
@@ -56,6 +48,14 @@ ActiveRecord::Schema.define(:version => 20131213233127) do
 
   add_index "images", ["wiki_id"], :name => "index_images_on_wiki_id"
 
+  create_table "roles", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "wiki_id"
+    t.integer  "user_id"
+    t.string   "level"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -74,11 +74,12 @@ ActiveRecord::Schema.define(:version => 20131213233127) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "role"
     t.string   "avatar"
     t.string   "customer_id"
     t.string   "stripe_id"
     t.string   "username"
+    t.string   "status"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

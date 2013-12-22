@@ -8,21 +8,21 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :username
 
   has_many :discussions
-  has_many :collaborations
-  has_many :wikis, :through => :collaborations
+  has_many :roles
+  has_many :wikis, through: :roles
 
   before_create :set_member
   mount_uploader :avatar, AvatarUploader
 
-  ROLES = %w[member paid moderator admin]
-  def role?(base_role)
-    role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
+  STATUSES = %w[free paid admin]
+  def status?(base_status)
+    status.nil? ? false : STATUSES.index(base_status.to_s) <= STATUSES.index(status)
   end
 
   private
 
   def set_member
-    self.role = 'member'
+    self.status = 'free'
   end
  
 

@@ -14,7 +14,7 @@ class WikisController < ApplicationController
   def new
     @category = Category.find(params[:category_id])
     @wiki = Wiki.new
-    authorize! :create, Wiki, message: "You must be a member to create a new Wiki."
+    #authorize! :create, Wiki, message: "You must be a member to create a new Wiki."
   end
 
   def create

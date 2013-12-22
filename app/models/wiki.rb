@@ -1,8 +1,8 @@
 class Wiki < ActiveRecord::Base
   has_many :discussions
   has_many :images, :dependent => :destroy
-  has_many :collaborations
-  has_many :users, through: :collaborations
+  has_many :roles
+  has_many :users, through: :roles
 
   accepts_nested_attributes_for :images
 
@@ -21,5 +21,11 @@ class Wiki < ActiveRecord::Base
   validates :body, length: { minimum: 5 }, presence: true
   validates :category, presence: true
 
+  after_create :set_owner
+  
+  private
+  def set_owner
+    self.roles.first.level = 'owner'
+  end
 
 end

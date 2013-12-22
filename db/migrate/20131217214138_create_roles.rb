@@ -4,5 +4,8 @@ class CreateRoles < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_column :roles, :wiki_id, :integer
+    add_column :roles, :user_id, :integer
+    add_column :roles, :level, :string
   end
 end
