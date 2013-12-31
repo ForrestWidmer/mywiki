@@ -6,13 +6,16 @@ class Ability
 
    
     if user.status? :free
-      can :manage, Wiki
+      can :manage, Wiki, :user_id => user.id
       can :manage, Discussion, :user_id => user.id
+      #user.roles.where(wiki_id:wiki.id,level:'member').length > 0
+
     end
     
     if user.status? :paid
-      can :manage, Wiki
+      can :manage, Wiki, :user_id => user.id
       can :manage, Discussion, :user_id => user.id
+      #user.roles.where(wiki_id:wiki.id,level:'owner').length > 0
     end  
 
     if user.status? :admin

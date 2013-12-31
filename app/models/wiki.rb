@@ -11,7 +11,7 @@ class Wiki < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  attr_accessible :body, :title, :category_id, :category, :image, :images_attributes, :public, :collaborator
+  attr_accessible :body, :title, :category_id, :category, :image, :images_attributes, :public, :collaborator, :level
 
   default_scope order('created_at DESC')
 
@@ -21,11 +21,12 @@ class Wiki < ActiveRecord::Base
   validates :body, length: { minimum: 5 }, presence: true
   validates :category, presence: true
 
-  after_create :set_owner
+  #before_create :set_owner
   
   private
-  def set_owner
-    self.roles.first.level = 'owner'
-  end
+
+  #def set_owner
+  #  self.roles.first.level = 'owner'
+  #end
 
 end

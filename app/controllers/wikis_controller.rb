@@ -13,15 +13,15 @@ class WikisController < ApplicationController
 
   def new
     @category = Category.find(params[:category_id])
-    @wiki = Wiki.new
+    @wiki = current_user.wikis.new
     #authorize! :create, Wiki, message: "You must be a member to create a new Wiki."
   end
 
   def create
     @category = Category.find(params[:category_id])
-    @wiki = current_user.wikis.build(params[:wiki])
+    @wiki = current_user.wikis.create(params[:wiki])
     @wiki.category = @category
-      authorize! :create, @wiki, message: "You must be signed in to do that."
+      #authorize! :create, @wiki, message: "You must be signed in to do that."
       if @wiki.save
         flash[:notice] = "Wiki Created!"
         redirect_to [@category, @wiki]
