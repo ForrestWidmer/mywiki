@@ -21,12 +21,12 @@ class Wiki < ActiveRecord::Base
   validates :body, length: { minimum: 5 }, presence: true
   validates :category, presence: true
 
-  #before_create :set_owner
+  #after_create :set_owner
   
   private
 
-  #def set_owner
-  #  self.roles.first.level = 'owner'
-  #end
+  def set_owner
+    self.roles.first.level = "owner"
+  end
 
 end
