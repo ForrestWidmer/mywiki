@@ -21,7 +21,6 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(params[:category])
-    #authorize! :create, @category, message: "Only Admins and Mods can do that. If you would like a new category added please email our Administrators."
     if @category.save
       flash[:notice] = "Category was created successfully."
       redirect_to @category
@@ -33,7 +32,6 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    authorize! :update, @category, message: "Only Admins and Mods can do that. If you would like to have a category updated or edited please email our Administrators."
     if @category.update_attributes(params[:category])
       redirect_to @category
     else

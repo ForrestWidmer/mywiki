@@ -16,6 +16,7 @@ class Ability
       can :manage, Wiki, :user_id => user.id
       can :manage, Discussion, :user_id => user.id
       can :manage, Wiki, user.roles.where(wiki_id:wiki.id,level:'owner').length > 0
+      can :create, Category
     end  
 
     if user.status? :admin
