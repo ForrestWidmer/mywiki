@@ -4,8 +4,8 @@ class Wiki < ActiveRecord::Base
   has_many :roles
   has_many :users, through: :roles
 
-  accepts_nested_attributes_for :images
-
+  accepts_nested_attributes_for :roles
+  
   belongs_to :user
   belongs_to :category
 
@@ -23,10 +23,10 @@ class Wiki < ActiveRecord::Base
 
   #after_create :set_owner
   
-  private
+  #private
 
-  def set_owner
-    self.roles.first.level = "owner"
-  end
+  #def set_owner
+  #  Role.where(:wiki_id => self.id).first.level = "owner"
+  #end
 
 end

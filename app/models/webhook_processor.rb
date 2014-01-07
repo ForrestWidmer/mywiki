@@ -1,4 +1,4 @@
-class WebhookProcessor < ActiveRecord::Base
+#class WebhookProcessor < ActiveRecord::Base
   # attr_accessible :title, :body
 
   def process(event)
@@ -17,4 +17,4 @@ class WebhookProcessor < ActiveRecord::Base
   # def make_inactive(data_json)
   # end  
 
-end
+#end

@@ -110,6 +110,20 @@ A.class1:active {text-decoration: none; color: #199900;}
   color: #404040;
 }
 
+.box-marg {
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 3px 0 #212121;
+  -moz-box-shadow: 0 2px 3px 0 #212121;
+  box-shadow: 0 2px 3px 0 #212121;
+  border: 1px solid #212121;
+  background-color: #FFF;
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-right: 1.5em;
+  color: #404040;
+}
+
 .box-green {
   border-radius: 4px;
   -webkit-box-shadow: 0 2px 3px 0 #212121;

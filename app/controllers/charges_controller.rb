@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
     )
 
     current_user.update_attribute(:customer_id, customer.id)
-    current_user.role = "paid"
+    current_user.status = "paid"
     current_user.save!
 
     rescue Stripe::CardError => e

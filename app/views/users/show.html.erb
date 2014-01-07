@@ -1,6 +1,6 @@
  <div class="ink-grid"> 
   <div class="box">
-    <h2 class="content-center"><%= @user.username %></h2>
+    <h2 class="content-center"><%= @user.username || @user.email %></h2>
       <div class="content-center">
         <h5>
           <%= pluralize(@user.wikis.count, 'wiki') %>,

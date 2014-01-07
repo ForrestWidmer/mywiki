@@ -20,6 +20,7 @@ class WikisController < ApplicationController
   def create
     @category = Category.find(params[:category_id])
     @wiki = current_user.wikis.create(params[:wiki])
+    @wiki.roles.build(level: "owner", user_id: current_user.id)
     @wiki.category = @category
       #authorize! :create, @wiki, message: "You must be signed in to do that."
       if @wiki.save

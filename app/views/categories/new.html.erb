@@ -1,32 +1,38 @@
 <h1 class="content-center gutters">Create New Category</h1>
+  <div class="ink-grid">
+    <div class="column-group">
+      <div class="small-100 medium-100 large-100 gutters">
+        <h5>Guidelines for new a new Category:</h5>
+          <ul>
+            <li>Make sure content is appropriate.</li>
+            <li>Categories should be broad i.e. Animals, not Tigers.</li>
+            <li>Minimum wiki length is 100 characters.</li>
+            <li>Make learning fun!</li>
+          </ul>
+      </div>
+      <div class="small-50 medium-50 large-50 gutters content-center">
+        <div class="box">
+          <%= form_for @category, html: { class: 'content-center ink-form' } do |f| %>
 
-<div class="row">
-  <div class="large-30 gutters">
-    <h5>Guidelines for new a new Category:</h5>
-    <li>
-      <ul>Make sure content is appropriate.</ul>
-      <li>Categores should be broad i.e. Animals, not Tigers.</li>
-      <li>Minimum wiki length is 100 characters.</li>
-      <li>Make learning fun!</li>
-    </li>
+          <div class="control-group">
+            <%= f.label :name, class: 'control-label' %>
+            <div class="controls">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :description, class: 'control-label' %>
+            <div class="controls">
+              <%= f.text_area :description, rows: 15 %>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <%= f.submit "Save", class: 'ink-button green' %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-    <%= form_for @category, html: { class: 'large-70 content-center ink-form-horizontal' } do |f| %>
-      <div class="control-group">
-        <%= f.label :name, class: 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :name %>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :description, class: 'control-label' %>
-        <div class="controls">
-          <%= f.text_area :description, rows: 15 %>
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="controls">
-          <%= f.submit "Save", class: 'btn' %>
-        </div>
-      </div>
-    <% end %>
-</div>
