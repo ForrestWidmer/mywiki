@@ -8,7 +8,6 @@ class DiscussionsController < ApplicationController
     @discussion = current_user.discussions.build(params[:discussion])
     @discussion.wiki = @wiki
 
-    authorize! :create, @discussion, message: "You need be signed in to do that."
     if @discussion.save
       flash[:notice] = "Discussion was created."
       redirect_to [@category, @wiki]
