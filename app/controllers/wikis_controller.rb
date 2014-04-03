@@ -1,4 +1,6 @@
 class WikisController < ApplicationController
+  load_and_authorize_resource :category
+  load_and_authorize_resource :wiki, :through => :category
   
   def show
     @category = Category.find(params[:category_id])
@@ -13,7 +15,7 @@ class WikisController < ApplicationController
 
   def new
     @category = Category.find(params[:category_id])
-    @wiki = current_user.wikis.new
+    @wiki = Wiki.new
     #authorize! :create, Wiki, message: "You must be a member to create a new Wiki."
   end
 

@@ -11,9 +11,9 @@
 <div class="ink-grid">
 
   <div class="large-100">
-    <%# if can? :edit, @wiki %>
+    <% if can? :manage, @wiki %>
       <%= link_to "Edit Wiki", edit_category_wiki_path(@category,@wiki), class: 'ink-button green' %>
-    <%# end %>
+    <% end %>
   </div>
 
   

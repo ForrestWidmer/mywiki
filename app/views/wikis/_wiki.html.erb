@@ -7,7 +7,7 @@
     <small>
       <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
       submitted <%= time_ago_in_words(wiki.created_at) %> ago by
-      <%= link_to wiki.roles.first, wiki.user %><br/>
+      <%= link_to @name, wiki.user %><br/>
       <%= wiki.discussions.count %> Comments
     </small>
   </div>
