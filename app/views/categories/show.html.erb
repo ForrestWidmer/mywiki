@@ -12,17 +12,17 @@
 
 
 <div class="ink-grid">
-  <%# if can? :update, @category %>
+  <% if can? :create, @category %>
     <div class="content-center">
       <%= link_to "Edit Category", edit_category_path, class: 'ink-button green' %>
     </div>
-  <%# end %>
+  <% end %>
 
-  <%# if can? :create, Wiki %>
+  <% if can? :create, Wiki %>
     <div class="content-center">
       <%= link_to "Create New Wiki", new_category_wiki_path(@category), class: 'ink-button green' %>
     </div>
-  <%# end %>
+  <% end %>
 
     <div class="box gutters">
       <h5 class="content-center">

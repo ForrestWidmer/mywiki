@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @wikis = @category.wikis#.visible_to(current_user)
+    @wikis = @category.wikis.visible_to(current_user)
   end
 
   def edit

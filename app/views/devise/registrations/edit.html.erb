@@ -85,7 +85,8 @@
       <div class="box">
       <h3 class="content-center"><a href="#" class="js-show-hide class1" data-selector="js-go-premium">Want to go Premium?</a></h3>
         <div class="js-go-premium hide">
-          <div class="content-center">  
+          <div class="content-center">
+          <% if current_user.status == "free" %>  
             <p>(This will open a pop-up window.)</p>
               <%= form_tag charges_path do %>
               <article>
@@ -99,7 +100,9 @@
                 data-amount="500">
               </script>
               <% end %>
-          </div>
+            <% else %>
+              <p>You're already a premium member! Thanks!</p>
+          <% end %>
         </div>
       </div>
     </div>

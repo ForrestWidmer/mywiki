@@ -8,7 +8,11 @@
     </div>
   </div>
 </div>
-  <div class="content-center"><%= link_to "Create a New Category", new_category_path, class: 'ink-button green' %></div>
+  <% if can? :create, Category %>
+    <div class="content-center">
+      <%= link_to "Create a New Category", new_category_path, class: 'ink-button green' %>
+    </div>
+  <% end %>
 
 
   <% @categories.each do |category| %>

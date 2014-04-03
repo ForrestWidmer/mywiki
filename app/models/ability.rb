@@ -6,6 +6,7 @@ class Ability
 
    
     if user.status? :free
+      can :create, Wiki
       can( :manage, Wiki ) { |wiki| user.roles.where(wiki_id: wiki.id).exists? }
       can :manage, Discussion, :user_id => user.id
       #can :edit, Wiki, user.roles.where(wiki_id:wiki.id,level:'editor').length > 0
@@ -13,7 +14,7 @@ class Ability
     end
     
     if user.status? :paid
-      can :manage, Wiki, :user_id => user.id
+      can( :manage, Wiki ) { |wiki| user.roles.where(wiki_id: wiki.id).exists? }
       can :manage, Discussion, :user_id => user.id
       #can :manage, Wiki, user.roles.where(wiki_id:wiki.id,level:'owner').length > 0
       can :create, Category
