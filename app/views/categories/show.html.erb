@@ -35,7 +35,7 @@
       <div class="box gutters">
         <h6 class="content-center"><%= link_to (markdown wiki.title), [@category, wiki], class: 'class1' %></h6>
           <% if wiki.image? %>
-            <%= image_tag(wiki.image.url) %>
+            <%= image_tag(wiki.image.url(:tab)) %>
           <% else %>
             <%= image_tag("/assets/green_field.jpg") %>
           <% end %>
